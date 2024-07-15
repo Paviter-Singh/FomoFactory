@@ -41,8 +41,8 @@ This project provides a dashboard for displaying stock information in real-time.
    npx prisma migrate dev
 4. **Add Environment Variables**:
    ```bash
-   create .env inside api directory
-   Refer to ./sample.env for the required environment variab
+  Create a .env file inside the api directory.
+  Refer to ./sample.env for the required environment variables.
 5. **Start the Backend Server**:
    ```bash
    npm run dev
@@ -62,3 +62,6 @@ This project provides a dashboard for displaying stock information in real-time.
    npm run dev
     or
    npm start
+
+
+**Refer to README files inside the `api` and `ui` directories for more detailed information.**
