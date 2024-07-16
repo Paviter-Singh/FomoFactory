@@ -64,3 +64,7 @@ This project provides a dashboard for displaying stock information in real-time.
 
 
 **Refer to README files inside the `api` and `ui` directories for more detailed information.**
+
+### Note
+**Stock market opens between 2:30 to 9:30 IST, The project will only work in this time range**
+
