@@ -3,7 +3,7 @@ import { getTrade } from './controller/trade';
 import { CompanySymbol } from './types';
 
 //command below import to stop the websocket, that fetches the stock data, saves memory
-// import './controller/Finn.js'
+import './controller/Finn.js'
 
 const app = express();
 
