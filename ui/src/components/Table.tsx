@@ -173,8 +173,8 @@ function Filter({
     column,
     table,
 }: {
-    column: Column<any, any>
-    table: Table<any>
+    column: Column<ListPriceData, unknown>
+    table: Table<ListPriceData>
 }) {
     const firstValue = table
         .getPreFilteredRowModel()
@@ -183,7 +183,7 @@ function Filter({
     const columnFilterValue = column.getFilterValue()
 
     return typeof firstValue === 'number' ? (
-        <div className="flex space-x-2" onClick={e => e.stopPropagation()}>
+        <div className="flex justify-center space-x-2" onClick={e => e.stopPropagation()}>
             <input
                 type="number"
                 value={(columnFilterValue as [number, number])?.[0] ?? ''}
@@ -211,7 +211,7 @@ function Filter({
         </div>
     ) : (
         <input
-            className="w-36 border shadow rounded  text-black"
+            className="w-64 p-1 border shadow rounded  text-black"
             onChange={e => column.setFilterValue(e.target.value)}
             onClick={e => e.stopPropagation()}
             placeholder={`Search...`}

@@ -3,7 +3,7 @@ import { getTrade } from './controller/trade';
 import { CompanySymbol } from './types';
 
 //command below import to stop the websocket, that fetches the stock data, saves memory
-import './controller/Finn.js'
+import './services/Finn.js'
 
 const app = express();
 
@@ -13,7 +13,6 @@ app.get('/api/list-price-data/:symbol', async (req: Request<{
     symbol: CompanySymbol;
 }, any, any, any>, res) => {
     const { symbol }  = req.params;
-    console.log('symbol', symbol)
     try {
         const data = await getTrade(symbol)
         

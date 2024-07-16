@@ -84,15 +84,23 @@ const ListPriceDataTable = () => {
     );
     return (
         <div style={{ overflowX: 'auto' }}>
-            <form className="max-w-sm mx-auto">
-            <h1 className='text-2xl w-64'>Latest Stock prize</h1>
-                <label htmlFor="companies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Company</label>
-                <select value={symbol} onChange={handleSymbolChange} id="companies" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    {symbols.map((symbol) => (
-                        <option key={symbol} value={symbol}>{symbol}</option>
-                    ))}
-                </select>
-            </form>
+            <div className='flex items-center justify-start content-center'>
+                <h1 className='text-2xl mx-2 mt-3 w-64'>Latest Stock prize</h1>
+                <form className="mr-12 w-64 max-w-sm">
+                    <label htmlFor="companies" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Company</label>
+                    <select value={symbol} onChange={handleSymbolChange} id="companies" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        {symbols.map((symbol) => (
+                            <option key={symbol} value={symbol}>{symbol}</option>
+                        ))}
+                    </select>
+                </form>
+                <div className=' mx-8 mb-1 place-self-end'>
+                    <button className='bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded' onClick={() => rerender()}>Force Rerender</button>
+                </div>
+                <div className=' mb-1 place-self-end'>
+                    <button className='bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded' onClick={() => refetch()}>Refresh Data</button>
+                </div>
+            </div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Failed to fetch data</div>}
 
@@ -103,13 +111,6 @@ const ListPriceDataTable = () => {
                         columns,
                     }}
                 />
-                <hr />
-                <div>
-                    <button onClick={() => rerender()}>Force Rerender</button>
-                </div>
-                <div>
-                    <button onClick={() => refetch()}>Refresh Data</button>
-                </div>
             </>}
         </div>);
 };

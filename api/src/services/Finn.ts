@@ -4,10 +4,9 @@ import { LastPriceResponse } from '../types';
 import { createListPriceData } from '../controller/trade';
 const url = 'wss://ws.finnhub.io?token='+sanitizedConfig.API_KEY
 const socket = new WebSocket(url);
-
+console.log('websockets are active')
 // ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA']
 socket.addEventListener('open', function (event) {
-    // return;
     socket.send(JSON.stringify({'type':'subscribe', 'symbol': 'AAPL'}))
     socket.send(JSON.stringify({'type':'subscribe', 'symbol': 'GOOGL'}))
     socket.send(JSON.stringify({'type':'subscribe', 'symbol': 'MSFT'}))
@@ -17,7 +16,6 @@ socket.addEventListener('open', function (event) {
 
 // Listen for messages
 socket.on('message', function (event) {
-
     const respose: LastPriceResponse = JSON.parse(event.toString())
     if(respose.type=='trade'){
         respose.data.forEach(data=>{
